@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Resource Hub</title>
+    <link rel="canonical" href="https://webresources.hub" />
+    <style>
+        :root {
+            /* Core colors */
+            --primary-blue: #007AFF;
+            --primary-purple: #5E5CE6;
+            --primary-pink: #FF2D55;
+            --primary-orange: #FF9500;
+            --primary-yellow: #FFCC00;
+            --primary-green: #34C759;
+            --primary-teal: #5AC8FA;
+            --primary-indigo: #5856D6;
+            --primary-red: #FF3B30;
+            
+            /* Background colors */
+            --bg-white: #ffffff;
+            --bg-light: #f5f5f7;
+            --bg-dark: #1d1d1f;
+            --bg-gray: #86868b;
+            
+            /* Text colors */
+            --text-dark: #1d1d1f;
+            --text-gray: #86868b;
+            --text-light: #f5f5f7;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-white);
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            padding: 3rem 1rem;
+            text-align: center;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Color-coded sections */
+        section:nth-child(1) {
+            background: linear-gradient(to right, #f9f9f9, #f0f0f5);
+            border-top: 5px solid var(--primary-blue);
+        }
+        
+        section:nth-child(2) {
+            background: linear-gradient(to right, #f9f9f9, #f0fff5);
+            border-top: 5px solid var(--primary-green);
+        }
+        
+        section:nth-child(3) {
+            background: linear-gradient(to right, #f9f9f9, #fff0f5);
+            border-top: 5px solid var(--primary-pink);
+        }
+        
+        section:nth-child(4) {
+            background: linear-gradient(to right, #f9f9f9, #fffcf0);
+            border-top: 5px solid var(--primary-yellow);
+        }
+        
+        section:nth-child(5) {
+            background: linear-gradient(to right, #f9f9f9, #f0f5ff);
+            border-top: 5px solid var(--primary-indigo);
+        }
+        
+        section:nth-child(6) {
+            background: linear-gradient(to right, #f9f9f9, #fff5f0);
+            border-top: 5px solid var(--primary-orange);
+        }
+        
+        section:nth-child(7) {
+            background: linear-gradient(to right, #f9f9f9, #f0ffff);
+            border-top: 5px solid var(--primary-teal);
+        }
+        
+        h2 {
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+        
+        section:nth-child(1) h2 { color: var(--primary-blue); }
+        section:nth-child(2) h2 { color: var(--primary-green); }
+        section:nth-child(3) h2 { color: var(--primary-pink); }
+        section:nth-child(4) h2 { color: var(--primary-yellow); }
+        section:nth-child(5) h2 { color: var(--primary-indigo); }
+        section:nth-child(6) h2 { color: var(--primary-orange); }
+        section:nth-child(7) h2 { color: var(--primary-teal); }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.2rem;
+        }
+        
+        .resource-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 1.4rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            border-left: 4px solid transparent;
+        }
+        
+        section:nth-child(1) .resource-card:hover { border-left-color: var(--primary-blue); background-color: rgba(0, 122, 255, 0.03); }
+        section:nth-child(2) .resource-card:hover { border-left-color: var(--primary-green); background-color: rgba(52, 199, 89, 0.03); }
+        section:nth-child(3) .resource-card:hover { border-left-color: var(--primary-pink); background-color: rgba(255, 45, 85, 0.03); }
+        section:nth-child(4) .resource-card:hover { border-left-color: var(--primary-yellow); background-color: rgba(255, 204, 0, 0.03); }
+        section:nth-child(5) .resource-card:hover { border-left-color: var(--primary-indigo); background-color: rgba(88, 86, 214, 0.03); }
+        section:nth-child(6) .resource-card:hover { border-left-color: var(--primary-orange); background-color: rgba(255, 149, 0, 0.03); }
+        section:nth-child(7) .resource-card:hover { border-left-color: var(--primary-teal); background-color: rgba(90, 200, 250, 0.03); }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        
+        .resource-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        section:nth-child(1) .resource-card h3 { color: var(--primary-blue); }
+        section:nth-child(2) .resource-card h3 { color: var(--primary-green); }
+        section:nth-child(3) .resource-card h3 { color: var(--primary-pink); }
+        section:nth-child(4) .resource-card h3 { color: var(--primary-yellow); }
+        section:nth-child(5) .resource-card h3 { color: var(--primary-indigo); }
+        section:nth-child(6) .resource-card h3 { color: var(--primary-orange); }
+        section:nth-child(7) .resource-card h3 { color: var(--primary-teal); }
+        
+        .resource-card p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            text-decoration: none;
+            transition: all 0.2s;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+        
+        section:nth-child(1) a { color: var(--primary-blue); }
+        section:nth-child(2) a { color: var(--primary-green); }
+        section:nth-child(3) a { color: var(--primary-pink); }
+        section:nth-child(4) a { color: var(--primary-yellow); }
+        section:nth-child(5) a { color: var(--primary-indigo); }
+        section:nth-child(6) a { color: var(--primary-orange); }
+        section:nth-child(7) a { color: var(--primary-teal); }
+        
+        a:hover {
+            transform: translateX(3px);
+        }
+        
+        .resource-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 20px;
+            margin-right: 0.5rem;
+            font-weight: 500;
+        }
+        
+        section:nth-child(1) .resource-badge { background-color: rgba(0, 122, 255, 0.1); color: var(--primary-blue); }
+        section:nth-child(2) .resource-badge { background-color: rgba(52, 199, 89, 0.1); color: var(--primary-green); }
+        section:nth-child(3) .resource-badge { background-color: rgba(255, 45, 85, 0.1); color: var(--primary-pink); }
+        section:nth-child(4) .resource-badge { background-color: rgba(255, 204, 0, 0.1); color: var(--primary-yellow); }
+        section:nth-child(5) .resource-badge { background-color: rgba(88, 86, 214, 0.1); color: var(--primary-indigo); }
+        section:nth-child(6) .resource-badge { background-color: rgba(255, 149, 0, 0.1); color: var(--primary-orange); }
+        section:nth-child(7) .resource-badge { background-color: rgba(90, 200, 250, 0.1); color: var(--primary-teal); }
+        
+        footer {
+            background: linear-gradient(135deg, var(--primary-indigo), var(--primary-purple));
+            padding: 2rem 1rem;
+            text-align: center;
+            color: white;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            section {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Web Development Resource Hub</h1>
+        <p class="subtitle">A curated collection of essential tools and platforms for web developers, designers, and digital marketers.</p>
+    </header>
+    
+    <main>
+        <section>
+            <h2>Open-Source Templates & GitHub Resources</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h3>Rin - Dynamic Blog Platform</h3>
+                    <p>A dynamic blog system based on Cloudflare Pages, Workers, D1, and R2.</p>
+                    <span class="resource-badge">Cloudflare</span>
+                    <span class="resource-badge">Blog</span>
+                    <a href="https://github.com/openRin/Rin" target="_blank">View on GitHub →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Next.js Boilerplate</h3>
+                    <p>Starter template for Next.js 15 with App Router and Page Router support, Tailwind CSS 4 and TypeScript.</p>
+                    <span class="resource-badge">Next.js</span>
+                    <span class="resource-badge">TypeScript</span>
+                    <a href="https://github.com/ixartz/Next-js-Boilerplate" target="_blank">View on GitHub →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>SaaS Boilerplate</h3>
+                    <p>Full-stack React application with Auth, Multi-tenancy, Roles & Permissions, i18n, and more.</p>
+                    <span class="resource-badge">SaaS</span>
+                    <span class="resource-badge">React</span>
+                    <a href="https://github.com/ixartz/SaaS-Boilerplate" target="_blank">View on GitHub →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Next.js Landing Page Template</h3>
+                    <p>Free NextJS Landing Page Template written in Tailwind CSS 3 and TypeScript.</p>
+                    <span class="resource-badge">Landing Page</span>
+                    <span class="resource-badge">Next.js</span>
+                    <a href="https://github.com/ixartz/Next-JS-Landing-Page-Starter-Template" target="_blank">View on GitHub →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Astro Boilerplate</h3>
+                    <p>Responsive blog and portfolio template using TypeScript and React styled with Tailwind CSS.</p>
+                    <span class="resource-badge">Astro</span>
+                    <span class="resource-badge">Blog</span>
+                    <a href="https://github.com/ixartz/Astro-boilerplate" target="_blank">View on GitHub →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Landing Page Boilerplate</h3>
+                    <p>A versatile landing page template, ideal for various projects and marketing campaigns.</p>
+                    <span class="resource-badge">Landing Page</span>
+                    <a href="https://github.com/weijunext/landing-page-boilerplate" target="_blank">View on GitHub →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Viggle AI WebUI</h3>
+                    <p>Open source web client for Viggle AI video generation platform.</p>
+                    <span class="resource-badge">AI</span>
+                    <span class="resource-badge">Video</span>
+                    <a href="https://github.com/ai-aigc-studio/Viggle-AI-WebUI" target="_blank">View on GitHub →</a>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Web Hosting & Deployment Platforms</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h3>Vercel</h3>
+                    <p>Cloud platform for static sites and Serverless Functions that fits perfectly with your workflow.</p>
+                    <span class="resource-badge">Hosting</span>
+                    <span class="resource-badge">Serverless</span>
+                    <a href="https://vercel.com/" target="_blank">Visit Vercel →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Cloudflare</h3>
+                    <p>Enterprise hosting platform with edge computing capabilities and security features.</p>
+                    <span class="resource-badge">CDN</span>
+                    <span class="resource-badge">Edge Computing</span>
+                    <a href="https://www.cloudflare-cn.com/" target="_blank">Visit Cloudflare →</a>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Competitor Website Analysis Tools</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h3>Ahrefs Free SEO Tools</h3>
+                    <p>Comprehensive toolkit for backlink audits and authority checking with AI-powered insights.</p>
+                    <span class="resource-badge">SEO</span>
+                    <span class="resource-badge">Backlinks</span>
+                    <a href="https://ahrefs.com/free-seo-tools" target="_blank">Visit Ahrefs →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Semrush</h3>
+                    <p>All-in-one marketing toolkit for keyword tracking, rankings, and website SEO audits.</p>
+                    <span class="resource-badge">SEO</span>
+                    <span class="resource-badge">Marketing</span>
+                    <a href="https://www.semrush.com/" target="_blank">Visit Semrush →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>AITDK</h3>
+                    <p>AI-powered content generator and SEO optimization suite with traffic analysis tools.</p>
+                    <span class="resource-badge">AI</span>
+                    <span class="resource-badge">Content</span>
+                    <a href="https://aitdk.com/zh" target="_blank">Visit AITDK →</a>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Customer Needs & Keyword Research</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h3>Search Suggest</h3>
+                    <p>Tool that aggregates search suggestions from major search engines to discover user intent.</p>
+                    <span class="resource-badge">Keywords</span>
+                    <span class="resource-badge">User Intent</span>
+                    <a href="https://www.searchsuggest.tips/?keyword=" target="_blank">Visit Search Suggest →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Toolify AI</h3>
+                    <p>Directory of revenue-generating AI tools with insights on successful AI implementations.</p>
+                    <span class="resource-badge">AI</span>
+                    <span class="resource-badge">Market Research</span>
+                    <a href="https://www.toolify.ai/Best-AI-Tools-revenue" target="_blank">Visit Toolify →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>There's An AI For That</h3>
+                    <p>Comprehensive database of AI tools organized by user requests and application areas.</p>
+                    <span class="resource-badge">AI</span>
+                    <span class="resource-badge">Directory</span>
+                    <a href="https://theresanaiforthat.com/requests" target="_blank">Visit There's An AI For That →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Ahrefs Keyword Difficulty</h3>
+                    <p>Free tool to analyze keyword difficulty with AI scoring system to guide content strategy.</p>
+                    <span class="resource-badge">SEO</span>
+                    <span class="resource-badge">Keywords</span>
+                    <a href="https://ahrefs.com/keyword-difficulty" target="_blank">Visit Ahrefs Keyword Difficulty →</a>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Domain Registration Services</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h3>Spaceship</h3>
+                    <p>Domain-centric web development solution with comprehensive management tools.</p>
+                    <span class="resource-badge">Domains</span>
+                    <a href="https://www.spaceship.com/" target="_blank">Visit Spaceship →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Porkbun</h3>
+                    <p>Modern domain registrar with competitive pricing and a straightforward user experience.</p>
+                    <span class="resource-badge">Domains</span>
+                    <a href="https://porkbun.com/" target="_blank">Visit Porkbun →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Namecheap</h3>
+                    <p>Affordable domain registration service with global TLD availability and added services.</p>
+                    <span class="resource-badge">Domains</span>
+                    <span class="resource-badge">Hosting</span>
+                    <a href="https://www.namecheap.com/" target="_blank">Visit Namecheap →</a>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Domain Availability Tools</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h3>Lean Domain Search</h3>
+                    <p>Quickly search for and register available domain names based on keywords.</p>
+                    <span class="resource-badge">Domain Search</span>
+                    <a href="https://leandomainsearch.com/" target="_blank">Visit Lean Domain Search →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Query.Domains</h3>
+                    <p>Free bulk domain availability checker based on WHOIS lookup data.</p>
+                    <span class="resource-badge">Bulk Check</span>
+                    <span class="resource-badge">WHOIS</span>
+                    <a href="https://query.domains/" target="_blank">Visit Query.Domains →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Instant Domain Search</h3>
+                    <p>Real-time domain availability checker with instant results as you type.</p>
+                    <span class="resource-badge">Domain Search</span>
+                    <a href="https://instantdomainsearch.com/?q=" target="_blank">Visit Instant Domain Search →</a>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Website Analytics Solutions</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h3>Bing Webmaster Tools</h3>
+                    <p>Free service that helps you monitor and maintain your website's presence in Bing search results.</p>
+                    <span class="resource-badge">Analytics</span>
+                    <span class="resource-badge">Bing</span>
+                    <a href="https://www.bing.com/webmasters/about" target="_blank">Visit Bing Webmaster Tools →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Google Search Console</h3>
+                    <p>Monitoring dashboard for Google search performance and compliance issues.</p>
+                    <span class="resource-badge">Analytics</span>
+                    <span class="resource-badge">Google</span>
+                    <a href="https://search.google.com/search-console/about" target="_blank">Visit Google Search Console →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Google Analytics</h3>
+                    <p>Comprehensive analytics platform with AI-powered intelligence reports for websites.</p>
+                    <span class="resource-badge">Analytics</span>
+                    <span class="resource-badge">Reporting</span>
+                    <a href="https://analytics.google.com/analytics/web/#/" target="_blank">Visit Google Analytics →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Web Development Resource Hub. All resources are property of their respective owners.</p>
+    </footer>
+</body>
+</html>
