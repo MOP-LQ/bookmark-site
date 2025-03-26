@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
+      <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4WF934ZY5M"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -241,6 +241,85 @@
             font-size: 0.9rem;
         }
         
+        /* Navigation Bar Styles */
+        .nav-container {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 0.5rem 1rem;
+            display: flex;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-wrapper {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .nav-menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-item {
+            list-style: none;
+        }
+        
+        .nav-link {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .nav-link:hover {
+            transform: translateY(-2px);
+        }
+        
+        .nav-link.blue { background-color: rgba(0, 122, 255, 0.1); }
+        .nav-link.blue:hover { background-color: rgba(0, 122, 255, 0.2); color: var(--primary-blue); }
+        
+        .nav-link.green { background-color: rgba(52, 199, 89, 0.1); }
+        .nav-link.green:hover { background-color: rgba(52, 199, 89, 0.2); color: var(--primary-green); }
+        
+        .nav-link.pink { background-color: rgba(255, 45, 85, 0.1); }
+        .nav-link.pink:hover { background-color: rgba(255, 45, 85, 0.2); color: var(--primary-pink); }
+        
+        .nav-link.yellow { background-color: rgba(255, 204, 0, 0.1); }
+        .nav-link.yellow:hover { background-color: rgba(255, 204, 0, 0.2); color: var(--primary-yellow); }
+        
+        .nav-link.indigo { background-color: rgba(88, 86, 214, 0.1); }
+        .nav-link.indigo:hover { background-color: rgba(88, 86, 214, 0.2); color: var(--primary-indigo); }
+        
+        .nav-link.orange { background-color: rgba(255, 149, 0, 0.1); }
+        .nav-link.orange:hover { background-color: rgba(255, 149, 0, 0.2); color: var(--primary-orange); }
+        
+        .nav-link.teal { background-color: rgba(90, 200, 250, 0.1); }
+        .nav-link.teal:hover { background-color: rgba(90, 200, 250, 0.2); color: var(--primary-teal); }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+        
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -257,6 +336,40 @@
             section {
                 padding: 1rem;
             }
+            
+            .nav-menu {
+                flex-direction: row;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 10px; /* Add some padding for scrollbar */
+                scrollbar-width: thin;
+                scrollbar-color: var(--primary-blue) transparent;
+            }
+            
+            .nav-menu::-webkit-scrollbar {
+                height: 4px;
+            }
+            
+            .nav-menu::-webkit-scrollbar-track {
+                background: transparent;
+            }
+            
+            .nav-menu::-webkit-scrollbar-thumb {
+                background-color: var(--primary-blue);
+                border-radius: 20px;
+            }
+            
+            .nav-link {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.75rem;
+            }
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px; /* Adjust based on your nav height */
         }
     </style>
 </head>
@@ -266,8 +379,22 @@
         <p class="subtitle">A curated collection of essential tools and platforms for web developers, designers, and digital marketers.</p>
     </header>
     
+    <nav class="nav-container">
+        <div class="nav-wrapper">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#templates" class="nav-link blue">Templates & GitHub</a></li>
+                <li class="nav-item"><a href="#hosting" class="nav-link green">Hosting</a></li>
+                <li class="nav-item"><a href="#analysis" class="nav-link pink">Competitor Analysis</a></li>
+                <li class="nav-item"><a href="#research" class="nav-link yellow">Keyword Research</a></li>
+                <li class="nav-item"><a href="#registration" class="nav-link indigo">Domain Registration</a></li>
+                <li class="nav-item"><a href="#availability" class="nav-link orange">Domain Tools</a></li>
+                <li class="nav-item"><a href="#analytics" class="nav-link teal">Analytics</a></li>
+            </ul>
+        </div>
+    </nav>
+    
     <main>
-        <section>
+        <section id="templates">
             <h2>Open-Source Templates & GitHub Resources</h2>
             <div class="resource-grid">
                 <div class="resource-card">
@@ -321,7 +448,7 @@
             </div>
         </section>
         
-        <section>
+        <section id="hosting">
             <h2>Web Hosting & Deployment Platforms</h2>
             <div class="resource-grid">
                 <div class="resource-card">
@@ -341,7 +468,7 @@
             </div>
         </section>
         
-        <section>
+        <section id="analysis">
             <h2>Competitor Website Analysis Tools</h2>
             <div class="resource-grid">
                 <div class="resource-card">
@@ -368,7 +495,7 @@
             </div>
         </section>
         
-        <section>
+        <section id="research">
             <h2>Customer Needs & Keyword Research</h2>
             <div class="resource-grid">
                 <div class="resource-card">
@@ -402,7 +529,7 @@
             </div>
         </section>
         
-        <section>
+        <section id="registration">
             <h2>Domain Registration Services</h2>
             <div class="resource-grid">
                 <div class="resource-card">
@@ -427,7 +554,7 @@
             </div>
         </section>
         
-        <section>
+        <section id="availability">
             <h2>Domain Availability Tools</h2>
             <div class="resource-grid">
                 <div class="resource-card">
@@ -452,7 +579,7 @@
             </div>
         </section>
         
-        <section>
+        <section id="analytics">
             <h2>Website Analytics Solutions</h2>
             <div class="resource-grid">
                 <div class="resource-card">
