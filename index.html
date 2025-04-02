@@ -12,7 +12,99 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Development Resource Hub</title>
+    <meta name="description" content="Discover high-quality open-source templates and GitHub resources for web development. From Next.js and React boilerplates to dynamic blog platforms and landing page templates, find the perfect starting point for your next project.">
+    <meta name="keywords" content="web development, web resources, developer tools, web templates, hosting platforms, SEO tools, domain registration, website analytics">
+    <meta name="author" content="Web Development Resource Hub">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://webresources.hub/">
+    <meta property="og:title" content="Web Development Resource Hub - Essential Tools for Web Developers">
+    <meta property="og:description" content="A curated collection of essential tools and platforms for web developers, designers, and digital marketers.">
+    <meta property="og:image" content="https://webresources.hub/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://webresources.hub/">
+    <meta property="twitter:title" content="Web Development Resource Hub - Essential Tools for Web Developers">
+    <meta property="twitter:description" content="A curated collection of essential tools and platforms for web developers, designers, and digital marketers.">
+    <meta property="twitter:image" content="https://webresources.hub/og-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://webresources.hub/" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- JSON-LD structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Web Development Resource Hub",
+      "url": "https://webresources.hub/",
+      "description": "A curated collection of essential tools and platforms for web developers, designers, and digital marketers.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://webresources.hub/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Templates & GitHub Resources",
+          "url": "https://webresources.hub/#templates"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Web Hosting & Deployment Platforms",
+          "url": "https://webresources.hub/#hosting"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Competitor Website Analysis Tools",
+          "url": "https://webresources.hub/#analysis"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Customer Needs & Keyword Research",
+          "url": "https://webresources.hub/#research"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Domain Registration Services",
+          "url": "https://webresources.hub/#registration"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Domain Availability Tools",
+          "url": "https://webresources.hub/#availability"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "Website Analytics Solutions",
+          "url": "https://webresources.hub/#analytics"
+        }
+      ]
+    }
+    </script>
+    
+    <title>Web Development Resource Hub - Essential Tools for Web Developers</title>
     <link rel="canonical" href="https://webresources.hub" />
     <style>
         :root {
@@ -371,6 +463,154 @@
             scroll-behavior: smooth;
             scroll-padding-top: 70px; /* Adjust based on your nav height */
         }
+        
+        /* 添加搜索相关样式 */
+        .search-container {
+            display: flex;
+            gap: 0.5rem;
+            margin-right: 1rem;
+        }
+        
+        .search-input {
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            width: 200px;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 2px rgba(0,122,255,0.1);
+        }
+        
+        .search-button {
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .search-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-top: 0.5rem;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .search-results.active {
+            display: block;
+        }
+        
+        .search-result-item {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .search-result-item:hover {
+            background-color: rgba(0,122,255,0.05);
+        }
+        
+        .search-result-item h4 {
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+        
+        .search-result-item p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+        
+        @media (max-width: 768px) {
+            .search-container {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+            
+            .search-input {
+                width: 100%;
+            }
+            
+            .search-results {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                max-height: none;
+            }
+        }
+        
+        /* 添加Back to Top按钮样式 */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 3rem;
+            height: 3rem;
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(1rem);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+        
+        .back-to-top:active {
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 2.5rem;
+                height: 2.5rem;
+                font-size: 1.2rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -381,6 +621,10 @@
     
     <nav class="nav-container">
         <div class="nav-wrapper">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="搜索资源..." class="search-input">
+                <button id="searchButton" class="search-button">搜索</button>
+            </div>
             <ul class="nav-menu">
                 <li class="nav-item"><a href="#templates" class="nav-link blue">Templates & GitHub</a></li>
                 <li class="nav-item"><a href="#hosting" class="nav-link green">Hosting</a></li>
@@ -610,5 +854,279 @@
     <footer>
         <p>&copy; 2025 Web Development Resource Hub. All resources are property of their respective owners.</p>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">↑</button>
+
+    <script>
+        // Back to Top功能实现
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            
+            // 节流函数
+            function throttle(func, limit) {
+                let inThrottle;
+                return function(...args) {
+                    if (!inThrottle) {
+                        func.apply(this, args);
+                        inThrottle = true;
+                        setTimeout(() => inThrottle = false, limit);
+                    }
+                }
+            }
+            
+            // 检查滚动位置
+            const checkScroll = throttle(() => {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            }, 100);
+            
+            // 平滑滚动到顶部
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // 监听滚动事件
+            window.addEventListener('scroll', checkScroll);
+            
+            // 初始检查
+            checkScroll();
+        });
+
+        // 搜索功能实现
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.getElementById('searchButton');
+            const searchResults = document.createElement('div');
+            searchResults.className = 'search-results';
+            document.querySelector('.nav-wrapper').appendChild(searchResults);
+            
+            // 所有资源数据
+            const resources = [
+                // Templates & GitHub Resources
+                {
+                    title: 'Rin - Dynamic Blog Platform',
+                    description: 'A dynamic blog system based on Cloudflare Pages, Workers, D1, and R2.',
+                    section: 'templates',
+                    url: 'https://github.com/openRin/Rin'
+                },
+                {
+                    title: 'Next.js Boilerplate',
+                    description: 'Starter template for Next.js 15 with App Router and Page Router support, Tailwind CSS 4 and TypeScript.',
+                    section: 'templates',
+                    url: 'https://github.com/ixartz/Next-js-Boilerplate'
+                },
+                {
+                    title: 'SaaS Boilerplate',
+                    description: 'Full-stack React application with Auth, Multi-tenancy, Roles & Permissions, i18n, and more.',
+                    section: 'templates',
+                    url: 'https://github.com/ixartz/SaaS-Boilerplate'
+                },
+                {
+                    title: 'Next.js Landing Page Template',
+                    description: 'Free NextJS Landing Page Template written in Tailwind CSS 3 and TypeScript.',
+                    section: 'templates',
+                    url: 'https://github.com/ixartz/Next-JS-Landing-Page-Starter-Template'
+                },
+                {
+                    title: 'Astro Boilerplate',
+                    description: 'Responsive blog and portfolio template using TypeScript and React styled with Tailwind CSS.',
+                    section: 'templates',
+                    url: 'https://github.com/ixartz/Astro-boilerplate'
+                },
+                {
+                    title: 'Landing Page Boilerplate',
+                    description: 'A versatile landing page template, ideal for various projects and marketing campaigns.',
+                    section: 'templates',
+                    url: 'https://github.com/weijunext/landing-page-boilerplate'
+                },
+                {
+                    title: 'Viggle AI WebUI',
+                    description: 'Open source web client for Viggle AI video generation platform.',
+                    section: 'templates',
+                    url: 'https://github.com/ai-aigc-studio/Viggle-AI-WebUI'
+                },
+
+                // Web Hosting & Deployment Platforms
+                {
+                    title: 'Vercel',
+                    description: 'Cloud platform for static sites and Serverless Functions that fits perfectly with your workflow.',
+                    section: 'hosting',
+                    url: 'https://vercel.com/'
+                },
+                {
+                    title: 'Cloudflare',
+                    description: 'Enterprise hosting platform with edge computing capabilities and security features.',
+                    section: 'hosting',
+                    url: 'https://www.cloudflare-cn.com/'
+                },
+
+                // Competitor Website Analysis Tools
+                {
+                    title: 'Ahrefs Free SEO Tools',
+                    description: 'Comprehensive toolkit for backlink audits and authority checking with AI-powered insights.',
+                    section: 'analysis',
+                    url: 'https://ahrefs.com/free-seo-tools'
+                },
+                {
+                    title: 'Semrush',
+                    description: 'All-in-one marketing toolkit for keyword tracking, rankings, and website SEO audits.',
+                    section: 'analysis',
+                    url: 'https://www.semrush.com/'
+                },
+                {
+                    title: 'AITDK',
+                    description: 'AI-powered content generator and SEO optimization suite with traffic analysis tools.',
+                    section: 'analysis',
+                    url: 'https://aitdk.com/zh'
+                },
+
+                // Customer Needs & Keyword Research
+                {
+                    title: 'Search Suggest',
+                    description: 'Tool that aggregates search suggestions from major search engines to discover user intent.',
+                    section: 'research',
+                    url: 'https://www.searchsuggest.tips/?keyword='
+                },
+                {
+                    title: 'Toolify AI',
+                    description: 'Directory of revenue-generating AI tools with insights on successful AI implementations.',
+                    section: 'research',
+                    url: 'https://www.toolify.ai/Best-AI-Tools-revenue'
+                },
+                {
+                    title: "There's An AI For That",
+                    description: 'Comprehensive database of AI tools organized by user requests and application areas.',
+                    section: 'research',
+                    url: 'https://theresanaiforthat.com/requests'
+                },
+                {
+                    title: 'Ahrefs Keyword Difficulty',
+                    description: 'Free tool to analyze keyword difficulty with AI scoring system to guide content strategy.',
+                    section: 'research',
+                    url: 'https://ahrefs.com/keyword-difficulty'
+                },
+
+                // Domain Registration Services
+                {
+                    title: 'Spaceship',
+                    description: 'Domain-centric web development solution with comprehensive management tools.',
+                    section: 'registration',
+                    url: 'https://www.spaceship.com/'
+                },
+                {
+                    title: 'Porkbun',
+                    description: 'Modern domain registrar with competitive pricing and a straightforward user experience.',
+                    section: 'registration',
+                    url: 'https://porkbun.com/'
+                },
+                {
+                    title: 'Namecheap',
+                    description: 'Affordable domain registration service with global TLD availability and added services.',
+                    section: 'registration',
+                    url: 'https://www.namecheap.com/'
+                },
+
+                // Domain Availability Tools
+                {
+                    title: 'Lean Domain Search',
+                    description: 'Quickly search for and register available domain names based on keywords.',
+                    section: 'availability',
+                    url: 'https://leandomainsearch.com/'
+                },
+                {
+                    title: 'Query.Domains',
+                    description: 'Free bulk domain availability checker based on WHOIS lookup data.',
+                    section: 'availability',
+                    url: 'https://query.domains/'
+                },
+                {
+                    title: 'Instant Domain Search',
+                    description: 'Real-time domain availability checker with instant results as you type.',
+                    section: 'availability',
+                    url: 'https://instantdomainsearch.com/?q='
+                },
+
+                // Website Analytics Solutions
+                {
+                    title: 'Bing Webmaster Tools',
+                    description: 'Free service that helps you monitor and maintain your website\'s presence in Bing search results.',
+                    section: 'analytics',
+                    url: 'https://www.bing.com/webmasters/about'
+                },
+                {
+                    title: 'Google Search Console',
+                    description: 'Monitoring dashboard for Google search performance and compliance issues.',
+                    section: 'analytics',
+                    url: 'https://search.google.com/search-console/about'
+                },
+                {
+                    title: 'Google Analytics',
+                    description: 'Comprehensive analytics platform with AI-powered intelligence reports for websites.',
+                    section: 'analytics',
+                    url: 'https://analytics.google.com/analytics/web/#/'
+                }
+            ];
+            
+            function performSearch(query) {
+                if (!query.trim()) {
+                    searchResults.classList.remove('active');
+                    return;
+                }
+                
+                const results = resources.filter(resource => 
+                    resource.title.toLowerCase().includes(query.toLowerCase()) ||
+                    resource.description.toLowerCase().includes(query.toLowerCase())
+                );
+                
+                displayResults(results);
+            }
+            
+            function displayResults(results) {
+                searchResults.innerHTML = '';
+                
+                if (results.length === 0) {
+                    searchResults.innerHTML = '<div class="search-result-item"><p>未找到相关资源</p></div>';
+                } else {
+                    results.forEach(result => {
+                        const resultItem = document.createElement('div');
+                        resultItem.className = 'search-result-item';
+                        resultItem.innerHTML = `
+                            <h4>${result.title}</h4>
+                            <p>${result.description}</p>
+                        `;
+                        resultItem.addEventListener('click', () => {
+                            window.location.href = result.url;
+                        });
+                        searchResults.appendChild(resultItem);
+                    });
+                }
+                
+                searchResults.classList.add('active');
+            }
+            
+            // 搜索事件监听
+            searchInput.addEventListener('input', (e) => {
+                performSearch(e.target.value);
+            });
+            
+            searchButton.addEventListener('click', () => {
+                performSearch(searchInput.value);
+            });
+            
+            // 点击外部关闭搜索结果
+            document.addEventListener('click', (e) => {
+                if (!searchInput.contains(e.target) && !searchButton.contains(e.target) && !searchResults.contains(e.target)) {
+                    searchResults.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
